@@ -9,5 +9,5 @@ if PROD
 	apiServer PORT
 else
 	console.log 'running development'
-	#apiServer PORT - 1
+	apiServer PORT - 1
 	webpackServer PORT

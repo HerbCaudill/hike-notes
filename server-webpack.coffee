@@ -7,7 +7,8 @@ module.exports = (PORT) ->
     webpack = require 'webpack'
     config = require './webpack.config.coffee'
 
-    # add hot replacement entry points to config (only in development)
+    # modify config for development environment
+
     config.entry.app = [
         "webpack-dev-server/client?http://localhost:#{PORT}"
         'webpack/hot/only-dev-server'
@@ -17,7 +18,7 @@ module.exports = (PORT) ->
     config.plugins.push new WebpackNotifierPlugin
     config.plugins.push new webpack.HotModuleReplacementPlugin()
 
-
+    # start server
 
     compiler = webpack config
 
@@ -27,7 +28,8 @@ module.exports = (PORT) ->
         inline: true
         contentBase: "."  
         noInfo: true  
-
+        proxy: 
+            "*": "http://localhost:#{PORT - 1}"
 
     server.listen PORT, 'localhost', (err, result) ->
         if err 

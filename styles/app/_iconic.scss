@@ -1,0 +1,143 @@
+﻿@import "../vars";
+
+svg.iconic {
+
+    .label & {
+        display: inline-block;
+        position: relative;
+        left: -1px;
+        margin-right: 2px;
+        height: 8px !important;
+        width: 8px !important;
+
+        * {
+            fill: white;
+            stroke: white;
+        }
+    }
+
+    .btn & {
+        display: inline-block;
+        position: relative;
+        top: .15em;
+        left: -.1em;
+        margin-top: -.1em;
+        margin-right: .1em;
+        width: 1em !important;
+        height: 1em !important;
+    }
+
+    .btn-group-sm &,
+    .btn-sm & {
+    }
+
+    .btn-group-xs &,
+    .btn-xs & {
+    }
+
+    // Icon colors inside buttons
+    .btn-primary & * { fill: $btn-primary-color; stroke: $btn-primary-color; }
+    .btn-success & * { fill: $btn-success-color; stroke: $btn-success-color; }
+    .btn-info & *    { fill: $btn-info-color;    stroke: $btn-info-color; }
+    .btn-warning & * { fill: $btn-warning-color; stroke: $btn-warning-color; }
+    .btn-danger & *  { fill: $btn-danger-color;  stroke: $btn-danger-color; }
+
+    // Icon colors inside alerts
+    .alert-primary > icon & * { fill: $brand-primary; stroke: $brand-primary; }
+    .alert-success > icon & * { fill: $brand-success; stroke: $brand-success; }
+    .alert-info > icon & *    { fill: $brand-info;    stroke: $brand-info; }
+    .alert-warning > icon & * { fill: $brand-warning; stroke: $brand-warning; }
+    .alert-danger > icon & *  { fill: $brand-danger;  stroke: $brand-danger; }
+
+    // Icon colors
+    icon.primary & * { fill: $brand-primary; stroke: $brand-primary; }
+    icon.success & * { fill: $brand-success; stroke: $brand-success; }
+    icon.info    & * { fill: $brand-info;    stroke: $brand-info;    }
+    icon.warning & * { fill: $brand-warning; stroke: $brand-warning; }
+    icon.danger  & * { fill: $brand-danger;  stroke: $brand-danger;  }
+
+    [role="button"] & {
+        transition: fill .5s;
+
+        &:hover {
+            fill: $ButtonHover;
+            cursor: pointer;
+        }
+    }
+}
+
+icon.iconic-solid svg.iconic.iconic-solid {
+    padding: 3px;
+
+    path {
+        fill: white;
+        stroke: white;
+    }
+
+    [class*="-warning"] & { background: $brand-warning; }
+    [class*="-success"] & { background: $brand-success; }
+    [class*="-primary"] & { background: $brand-primary; }
+    [class*="-danger"] &  { background: $brand-danger; }
+    [class*="-info"] &    { background: $brand-info; }
+}
+
+
+icon.iconic-circled {
+
+    // .btn (medium)
+    display: inline-block;
+    background: white;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    position:relative;
+    top:.9px;
+    left:-.2em;
+
+    svg.iconic {
+        top:-1.9px;
+        left:.75px;
+        height:8px!important;
+        width:8px!important;
+    }
+
+    .btn-lg & {
+        width:18px;
+        height:18px;
+        svg.iconic {
+            top:0.2px;
+            left:1px;
+            height:12px!important;
+            width:12px!important;
+        }
+    }
+
+    .btn-sm & {
+        top:1px;
+        svg.iconic {
+            top:-.8px;
+            left:.5px;
+        }
+    }
+
+    .btn-xs & {
+        top:2px;
+        height:10px;
+        width:10px;
+        left:0;
+        svg.iconic {
+            top:-3px;
+            left:.5px;
+            height:6px!important;
+            width:6px!important;
+        }
+    }
+
+    // Color of circle & icons in buttons
+    .btn-primary & { background: $btn-primary-color; svg * { fill: $btn-primary-bg; stroke: $btn-primary-bg; } }
+    .btn-success & { background: $btn-success-color; svg * { fill: $btn-success-bg; stroke: $btn-success-bg; } }
+    .btn-info &    { background: $btn-info-color;    svg * { fill: $btn-info-bg;    stroke: $btn-info-bg; } }
+    .btn-warning & { background: $btn-warning-color; svg * { fill: $btn-warning-bg; stroke: $btn-warning-bg;    } }
+    .btn-danger &  { background: $btn-danger-color; svg *  { fill: $btn-danger-bg;  stroke: $btn-danger-bg;  } }
+
+}

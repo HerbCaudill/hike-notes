@@ -1,0 +1,8 @@
+@import "vars";
+@import "lib/bootstrap/mixins";
+@import "app/utility/mixins";
+
+body {
+  padding: 1em;
+  background: $light-green;
+}

@@ -1,3 +1,3 @@
 ﻿require './styles/app.scss'
-require './scripts/app.coffee'
+require './scripts/app.jsx'
 

@@ -22,6 +22,12 @@ module.exports =
         
     module:
         loaders: [
+                test: /\.js(x?)$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+                query: 
+                    presets: ['react', 'es2015']
+            ,
                 test: /\.coffee$/
                 loaders: ['react-hot', 'coffee']
                 exclude: /node_modules/

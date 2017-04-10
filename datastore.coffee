@@ -1,7 +1,15 @@
 'use strict'
 mongodb = require('mongodb')
-# Standard URI format: mongodb://[dbuser:dbpassword@]host:port/dbname, details set in .env
-MONGODB_URI = "mongodb://#{process.env.USER}:#{process.env.PASS}@#{process.env.HOST}:#{process.env.DB_PORT}/#{process.env.DB}"
+
+# TODO: Move this to environment vars
+USER = 'web'
+PASS = 'mmLL0099'
+HOST = 'ds056559.mlab.com'
+DB_PORT = 56559
+DB = 'hikenotes'
+COLLECTION = 'posts'
+
+MONGODB_URI = "mongodb://#{USER}:#{PASS}@#{HOST}:#{DB_PORT}/#{DB}"
 collection = undefined
 
 # ------------------------------
@@ -81,7 +89,7 @@ connect = ->
       mongodb.MongoClient.connect MONGODB_URI, (err, db) ->
         if err
           reject err
-        collection = db.collection(process.env.COLLECTION)
+        collection = db.collection(COLLECTION)
         resolve collection
         return
     catch ex

@@ -47,16 +47,16 @@ module.exports = (PORT) ->
 
 
     server.get '/api/posts', (request, response) ->
-        response.send initialPosts
-        #try
-         # posts = datastore.get('posts')
-         # .then (posts) ->
-         #     response.status 200
-         #     response.send posts
-         # .catch (err) ->
-         #     console.log JSON.stringify err
-        #catch err
-        #    handleError err, response
+        #response.send initialPosts
+        try
+          posts = datastore.get('posts')
+          .then (posts) ->
+              response.status 200
+              response.send posts
+          .catch (err) ->
+              console.log JSON.stringify err
+        catch err
+            handleError err, response
         return
         
     server.post '/posts', (request, response) ->
@@ -103,10 +103,8 @@ module.exports = (PORT) ->
     ]
 
 
-    server.listen PORT, -> 
-        console.log "API listening on port #{PORT}"    
-    #connectOnProjectCreation() 
-    #.then -> initializeDatastoreOnProjectCreation()
-    #.then -> server.listen PORT, -> 
-    #    console.log "API listening on port #{PORT}"
+    connectOnProjectCreation() 
+    .then -> initializeDatastoreOnProjectCreation()
+    .then -> server.listen PORT, -> 
+        console.log "API listening on port #{PORT}"
 
